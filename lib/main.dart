@@ -26,6 +26,9 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double width= MediaQuery.of(context).size.width;
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -64,7 +67,7 @@ class MyHomePage extends StatelessWidget {
                     },
                     child: Stack(
                       children: [
-                        Image.asset(li[i].img, width: MediaQuery.sizeOf(context).width, height: 100, fit: BoxFit.cover),
+                        Image.asset(li[i].img, width: width, height: 100, fit: BoxFit.cover),
                         Positioned(
                           bottom: 0,
                           left: 0,
@@ -72,7 +75,7 @@ class MyHomePage extends StatelessWidget {
                           child: Container(
                             color: Colors.black.withOpacity(0.5),
                            padding: EdgeInsets.only(right: 10,left: 10),
-                            width: MediaQuery.sizeOf(context).width,
+                            width: width,
                             child:Column(
                               children: [
                                 Row(
