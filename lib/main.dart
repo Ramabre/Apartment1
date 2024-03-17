@@ -56,13 +56,7 @@ class MyHomePage extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Profile(imga: li[i].img,
-                          property:li[i].property, area: li[i].area, price:li[i].price,
-                          review: li[i].review, city: li[i].city, roomNum: li[i].roomNum, parkNum: li[i].parkNum,
-                          bathNum: li[i].bathNum, description: li[i].description, park: li[i].park,
-                          cctv: li[i].cctv, security: li[i].security, ac: li[i].ac
-
-                          ,)),
+                        MaterialPageRoute(builder: (context) => Profile(pro: li[i],)),
                       );
                     },
                     child: Stack(
