@@ -1,4 +1,5 @@
 
+import 'package:drug/Detailes.dart';
 import 'package:flutter/material.dart';
 import 'package:drug/profile.dart'; // Assuming these imports are correct
 import 'package:drug/realty.dart'; // Assuming these imports are correct
@@ -28,26 +29,56 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     double width= MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
+
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Explore Property",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+              Text(
+                "Explore Property",
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
+              ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Det()),
+              );
+            },
+            child: CircleAvatar(
+              radius: 18,
+              backgroundImage: AssetImage("assets/images/profilee.jpg"),
             ),
+          )
+           ] ),
             TextField(
               decoration: InputDecoration(
                 hintText: 'Search',
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 13,),
+            Padding(padding: EdgeInsets.zero,
+              child: Row(
+                children: [
+                  Text("--", style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold// Text color (optional)
+                  ),),
+                  Text(" Result Found", style: TextStyle(
+                      fontSize: 16,
+                  ),),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 3),
             Expanded(
               child: ListView.separated(
                 itemCount: li.length,
@@ -61,17 +92,55 @@ class MyHomePage extends StatelessWidget {
                     },
                     child: Stack(
                       children: [
-                        Image.asset(li[i].img, width: width, height: 100, fit: BoxFit.cover),
-                        Positioned(
-                          bottom: 0,
-                          left: 0,
-                          right: 88,
+
+                        Container(
+                          width: width,
+                          height: 200,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.blue// Adjust the radius value as needed
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                              li[i].img,
+                             width: width,
+                             height: 200,
+                           fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Padding(padding: EdgeInsets.only(left: 10,top: 10),
                           child: Container(
-                            color: Colors.black.withOpacity(0.5),
-                           padding: EdgeInsets.only(right: 10,left: 10),
-                            width: width,
-                            child:Column(
+                            width: 80,
+                            height: 22,
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(10),
+                              // Background color
+                            ),
+                            child: Center(
+                              child: Text(
+                                "For Sale",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white, // Text color (optional)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 5,
+                          left: 2,
+                          right: 2,
+                          child: Padding(padding: EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
+
+
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
@@ -87,27 +156,31 @@ class MyHomePage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
+                                SizedBox(height: 5,),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children:[
                                   Row(
                                     children: [
-                                      Icon(Icons.location_on),
+                                      Icon(Icons.location_on,size: 13,color: Colors.white,),
                                       Text(
                                         li[i].city,
                                         textAlign: TextAlign.left,
                                         style: TextStyle(color: Colors.white),
                                       ),
-                                      Icon(Icons.electric_meter),
+                                      SizedBox(width: 9,),
+                                      Icon(Icons.electric_meter,size: 13,color: Colors.white),
                                       Text(
                                         li[i].area.toString(),
                                         textAlign: TextAlign.left,
                                         style: TextStyle(color: Colors.white),
                                       ),
-
+                                      Text(
+                                        " Sq/m", style: TextStyle(color: Colors.white),
+                                      ),
                                     ],
                                   ),
-                                  Row(
+                                  Wrap(
                                     children: [
                                       Icon(Icons.star,color: Colors.yellow,size: 14,),
                                       Text(
@@ -115,13 +188,14 @@ class MyHomePage extends StatelessWidget {
                                         textAlign: TextAlign.left,
                                         style: TextStyle(color: Colors.white),
                                       ),
+                                      Text(
+                                        " Reviews", style: TextStyle(color: Colors.white),
+                                      ),
                                     ],
-                                  )  
+                                  )
                             ]),
-
                               ],
-                            )
-
+                            ),
                           ),
                         ),
                       ],
