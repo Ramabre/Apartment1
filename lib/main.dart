@@ -1,8 +1,9 @@
 
 import 'package:drug/Detailes.dart';
 import 'package:flutter/material.dart';
-import 'package:drug/profile.dart'; // Assuming these imports are correct
-import 'package:drug/realty.dart'; // Assuming these imports are correct
+import 'package:drug/profile/section/methods.dart';
+import 'package:drug/profile/profile_v.dart'; // Assuming these imports are correct
+import 'package:drug/profile/realty_m.dart'; // Assuming these imports are correct
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +42,7 @@ class MyHomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-              Text(
+              const Text(
                 "Explore Property",
                 style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
               ),
@@ -49,22 +50,22 @@ class MyHomePage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Det()),
+                MaterialPageRoute(builder: (context) => const Det()),
               );
             },
-            child: CircleAvatar(
+            child: const CircleAvatar(
               radius: 18,
               backgroundImage: AssetImage("assets/images/profilee.jpg"),
             ),
           )
            ] ),
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 hintText: 'Search',
               ),
             ),
-            SizedBox(height: 13,),
-            Padding(padding: EdgeInsets.zero,
+            const SizedBox(height: 13,),
+            const Padding(padding: EdgeInsets.zero,
               child: Row(
                 children: [
                   Text("--", style: TextStyle(
@@ -78,7 +79,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 3),
+            const SizedBox(height: 3),
             Expanded(
               child: ListView.separated(
                 itemCount: li.length,
@@ -110,7 +111,7 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(padding: EdgeInsets.only(left: 10,top: 10),
+                        Padding(padding: const EdgeInsets.only(left: 10,top: 10),
                           child: Container(
                             width: 80,
                             height: 22,
@@ -119,7 +120,7 @@ class MyHomePage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                               // Background color
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 "For Sale",
                                 textAlign: TextAlign.center,
@@ -135,74 +136,15 @@ class MyHomePage extends StatelessWidget {
                           bottom: 5,
                           left: 2,
                           right: 2,
-                          child: Padding(padding: EdgeInsets.only(left: 10,right: 10,bottom: 10),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-
-
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      li[i].property,
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Text(
-                                     "\$"+li[i].price.toString(),
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 5,),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children:[
-                                  Row(
-                                    children: [
-                                      Icon(Icons.location_on,size: 13,color: Colors.white,),
-                                      Text(
-                                        li[i].city,
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                      SizedBox(width: 9,),
-                                      Icon(Icons.electric_meter,size: 13,color: Colors.white),
-                                      Text(
-                                        li[i].area.toString(),
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                      Text(
-                                        " Sq/m", style: TextStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                  Wrap(
-                                    children: [
-                                      Icon(Icons.star,color: Colors.yellow,size: 14,),
-                                      Text(
-                                        li[i].review.toString(),
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                      Text(
-                                        " Reviews", style: TextStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  )
-                            ]),
-                              ],
-                            ),
+                          child: Padding(padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                            child: Info(re: li[i],),
                           ),
                         ),
                       ],
                     ),
                   );
                 },
-                separatorBuilder: (context, i) => Divider(),
+                separatorBuilder: (context, i) => const Divider(),
               ),
             ),
           ],
@@ -212,3 +154,63 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+// child: Column(
+// mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// children: [
+//
+//
+// Row(
+// mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// children: [
+// Text(
+// li[i].property,
+// textAlign: TextAlign.left,
+// style: TextStyle(color: Colors.white),
+// ),
+// Text(
+// "\$"+li[i].price.toString(),
+// textAlign: TextAlign.left,
+// style: TextStyle(color: Colors.white),
+// ),
+// ],
+// ),
+// SizedBox(height: 5,),
+// Row(
+// mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// children:[
+// Row(
+// children: [
+// Icon(Icons.location_on,size: 13,color: Colors.white,),
+// Text(
+// li[i].city,
+// textAlign: TextAlign.left,
+// style: TextStyle(color: Colors.white),
+// ),
+// SizedBox(width: 9,),
+// Icon(Icons.electric_meter,size: 13,color: Colors.white),
+// Text(
+// li[i].area.toString(),
+// textAlign: TextAlign.left,
+// style: TextStyle(color: Colors.white),
+// ),
+// Text(
+// " Sq/m", style: TextStyle(color: Colors.white),
+// ),
+// ],
+// ),
+// Wrap(
+// children: [
+// Icon(Icons.star,color: Colors.yellow,size: 14,),
+// Text(
+// li[i].review.toString(),
+// textAlign: TextAlign.left,
+// style: TextStyle(color: Colors.white),
+// ),
+// Text(
+// " Reviews", style: TextStyle(color: Colors.white),
+// ),
+// ],
+// )
+// ]),
+// ],
+// ),

@@ -17,6 +17,7 @@ class realty{
   realty(this.property,this.area,this.price,this.review,this.city,this.roomNum,this.bathNum,this.parkNum,
       this.description,this.park,this.cctv,this.security,this.ac,this.img);
 }
+   // li is list object of realty
    List<realty> li=[
      realty('Ibe House', 2.789, 340000,4.3 ,'Los Angeles',3,2,2,
     "Loream Ipsum is simply dummy test of the printing and typesetting industry. Loream Ipsem has been the industry's standard dummy text ever since.",

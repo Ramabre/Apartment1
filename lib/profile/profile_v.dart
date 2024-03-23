@@ -1,7 +1,10 @@
 
+import 'package:drug/icones.dart';
+import 'package:drug/profile/section/methods.dart';
 import 'package:flutter/material.dart';
-import 'package:drug/realty.dart';
+import 'package:drug/profile/realty_m.dart';
 import 'package:drug/main.dart';
+
 class Profile extends StatelessWidget {
    Profile({Key? key, required this.pro}) : super(key: key);
 
@@ -134,10 +137,14 @@ class Profile extends StatelessWidget {
                   Wrap(
                     spacing: 5,
                     children: [
-                      available(pro.park,"parking",Icons.car_crash_outlined),
-                      available(pro.cctv,"CCTV",Icons.videocam_off_outlined),
-                      available(pro.security,"Security",Icons.security),
-                      available(pro.ac,"AC",Icons.severe_cold_outlined)
+                      // available(pro.park,"parking",Icons.car_crash_outlined),
+                      // available(pro.cctv,"CCTV",Icons.videocam_off_outlined),
+                      // available(pro.security,"Security",Icons.security),
+                      // available(pro.ac,"AC",Icons.severe_cold_outlined),
+                      Available(there:pro.park ,name: "parking",iconData: icones.carIcon,),
+                      Available(there:pro.cctv ,name: "CCTV",iconData:Icons.videocam_off_outlined),
+                      Available(there:pro.security ,name: "Security",iconData:Icons.security,),
+                      Available(there:pro.ac ,name:"AC",iconData: Icons.severe_cold_outlined),
                     ],
                   )
 
@@ -151,29 +158,29 @@ class Profile extends StatelessWidget {
     );
   }
 }
-
-Widget available (bool there,String name,IconData iconData){
-  return Container(
-    height: 70,
-    width: 85,
-      decoration: BoxDecoration(
-      color: there? Colors.blue: Colors.white,
-      border: Border.all(
-      color: Colors.grey,
-      width: 1.0,
-  ),  borderRadius: BorderRadius.circular(20.0),
-      ),
-
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Icon(iconData ,size: 30,color: there ? Colors.white : Colors.black,),
-    Text(
-      name,
-      style: TextStyle(
-        color: there ? Colors.white : Colors.black,fontSize: 14)
-      ),
-      ],
-    ),
-  );
-}
+// replace to available stateless in methods dart to more effecient
+//  Widget available (bool there,String name,IconData iconData){
+//   return Container(
+//     height: 70,
+//     width: 85,
+//       decoration: BoxDecoration(
+//       color: there? Colors.blue: Colors.white,
+//       border: Border.all(
+//       color: Colors.grey,
+//       width: 1.0,
+//   ),  borderRadius: BorderRadius.circular(20.0),
+//       ),
+//
+//     child: Column(
+//       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//       children: [
+//         Icon(iconData ,size: 30,color: there ? Colors.white : Colors.black,),
+//     Text(
+//       name,
+//       style: TextStyle(
+//         color: there ? Colors.white : Colors.black,fontSize: 14)
+//       ),
+//       ],
+//     ),
+//   );
+// }
