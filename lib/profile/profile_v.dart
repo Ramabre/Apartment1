@@ -1,6 +1,7 @@
 
 import 'package:drug/icones.dart';
 import 'package:drug/profile/section/methods.dart';
+import 'package:drug/stayle_app.dart';
 import 'package:flutter/material.dart';
 import 'package:drug/profile/realty_m.dart';
 import 'package:drug/main.dart';
@@ -30,57 +31,58 @@ class Profile extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        pro.property,
-                        style: TextStyle(fontWeight: FontWeight.w900,fontSize: 17),
-                        textAlign: TextAlign.left,
-                      ),
-                      Text(
-                        "\$${pro.price}",
-                        style: TextStyle(fontWeight: FontWeight.w900,fontSize: 17),
-                        textAlign: TextAlign.left,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 5,),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children:[
-                        Row(
-                          children: [
-                            Icon(Icons.location_on,size: 13,color: Colors.grey,),
-                            Text(
-                              pro.city,
-                              style: TextStyle(color: Colors.grey),
-                              textAlign: TextAlign.left,
-
-                            ),
-                            SizedBox(width: 9,),
-                            Icon(Icons.electric_meter,size: 13,color: Colors.grey),
-                            Text(
-                              pro.area.toString(),
-                              style: TextStyle(color: Colors.grey),
-                              textAlign: TextAlign.left,
-                            ),
-                            Text(
-                              " Sq/m", style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.star,color: Colors.yellow,size: 14,),
-                            Text(
-                              pro.review.toString(),
-                              style: TextStyle(color: Colors.grey),
-                              textAlign: TextAlign.left,
-                            ),
-                          ],
-                        )
-                      ]),
+                  Info(re: pro, tx:Style.BlackHeadlineStyle, tx2:Style.grayDetailesStyle,iconCol: Colors.grey,),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Text(
+                  //       pro.property,
+                  //       style: TextStyle(fontWeight: FontWeight.w900,fontSize: 17),
+                  //       textAlign: TextAlign.left,
+                  //     ),
+                  //     Text(
+                  //       "\$${pro.price}",
+                  //       style: TextStyle(fontWeight: FontWeight.w900,fontSize: 17),
+                  //       textAlign: TextAlign.left,
+                  //     ),
+                  //   ],
+                  // ),
+                  // SizedBox(height: 5,),
+                  // Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //     children:[
+                  //       Row(
+                  //         children: [
+                  //           Icon(Icons.location_on,size: 13,color: Colors.grey,),
+                  //           Text(
+                  //             pro.city,
+                  //             style: TextStyle(color: Colors.grey),
+                  //             textAlign: TextAlign.left,
+                  //
+                  //           ),
+                  //           SizedBox(width: 9,),
+                  //           Icon(Icons.electric_meter,size: 13,color: Colors.grey),
+                  //           Text(
+                  //             pro.area.toString(),
+                  //             style: TextStyle(color: Colors.grey),
+                  //             textAlign: TextAlign.left,
+                  //           ),
+                  //           Text(
+                  //             " Sq/m", style: TextStyle(color: Colors.white),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //       Row(
+                  //         children: [
+                  //           Icon(Icons.star,color: Colors.yellow,size: 14,),
+                  //           Text(
+                  //             pro.review.toString(),
+                  //             style: TextStyle(color: Colors.grey),
+                  //             textAlign: TextAlign.left,
+                  //           ),
+                  //         ],
+                  //       )
+                  //     ]),
                   SizedBox(height: 20,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

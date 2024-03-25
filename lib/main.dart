@@ -1,5 +1,6 @@
 
 import 'package:drug/Detailes.dart';
+import 'package:drug/stayle_app.dart';
 import 'package:flutter/material.dart';
 import 'package:drug/profile/section/methods.dart';
 import 'package:drug/profile/profile_v.dart'; // Assuming these imports are correct
@@ -137,7 +138,7 @@ class MyHomePage extends StatelessWidget {
                           left: 2,
                           right: 2,
                           child: Padding(padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
-                            child: Info(re: li[i],),
+                            child: Info(re: li[i],tx: Style.whiteHeadlineStyle,tx2: Style.whiteDetailesStyle,iconCol: Colors.white,),
                           ),
                         ),
                       ],

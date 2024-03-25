@@ -37,9 +37,11 @@ class Available extends StatelessWidget {
 }
 
 class Info extends StatelessWidget {
-  const Info({super.key,  required this.re});
+  const Info({super.key,  required this.re, required this.tx, required this.tx2, required this.iconCol});
         final realty re;
-
+        final TextStyle tx;
+        final TextStyle tx2;
+        final Color iconCol;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -51,12 +53,12 @@ class Info extends StatelessWidget {
             Text(
               re.property,
               textAlign: TextAlign.left,
-              style: TextStyle(color: Colors.white),
+              style: tx,
             ),
             Text(
               "\$"+re.price.toString(),
               textAlign: TextAlign.left,
-              style: TextStyle(color: Colors.white),
+              style: tx,
             ),
           ],
         ),
@@ -66,21 +68,21 @@ class Info extends StatelessWidget {
             children:[
               Row(
                 children: [
-                  Icon(Icons.location_on,size: 13,color: Colors.white,),
+                  Icon(Icons.location_on,size: 13,color:iconCol,),
                   Text(
                     re.city,
                     textAlign: TextAlign.left,
-                    style: TextStyle(color: Colors.white),
+                    style: tx2,
                   ),
                   SizedBox(width: 9,),
-                  Icon(Icons.electric_meter,size: 13,color: Colors.white),
+                  Icon(Icons.electric_meter,size: 13,color: iconCol),
                   Text(
                     re.area.toString(),
                     textAlign: TextAlign.left,
-                    style: TextStyle(color: Colors.white),
+                    style: tx2,
                   ),
                   Text(
-                    " Sq/m", style: TextStyle(color: Colors.white),
+                    " Sq/m", style:tx2,
                   ),
                 ],
               ),
@@ -90,7 +92,7 @@ class Info extends StatelessWidget {
                   Text(
                     re.review.toString(),
                     textAlign: TextAlign.left,
-                    style: TextStyle(color: Colors.white),
+                    style: tx2,
                   ),
                   Text(
                     " Reviews", style: TextStyle(color: Colors.white),
